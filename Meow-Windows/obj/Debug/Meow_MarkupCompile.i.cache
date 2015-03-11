@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Projects\Meow\Meow\obj\Debug\
+D:\Projects\Meow\Meow-Windows\obj\Debug\
 Meow
 none
 false
 DEBUG;TRACE
-D:\Projects\Meow\Meow\App.xaml
+D:\Projects\Meow\Meow-Windows\App.xaml
 11151548125
 
 9866267817
 12-1401562060
 MainWindow.xaml;
 
-True
+False
 

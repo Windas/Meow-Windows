@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.22310.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meow", "Meow\Meow.csproj", "{EE1E621A-65DA-445A-8DBC-98387E9AAA3A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meow-Windows", "Meow-Windows\Meow-Windows.csproj", "{EE1E621A-65DA-445A-8DBC-98387E9AAA3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
