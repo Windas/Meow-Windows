@@ -1,55 +1,31 @@
-﻿using System.Reflection;
-using System.Resources;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Windows;
+﻿#region Using directives
 
-// 有关程序集的常规信息通过以下
-// 特性集控制。更改这些特性值可修改
-// 与程序集关联的信息。
-[assembly: AssemblyTitle("Meow")]
+using System;
+using System.Reflection;
+using System.Runtime.InteropServices;
+
+#endregion
+
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+[assembly: AssemblyTitle("AvalonEdit.Sample")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Meow")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyProduct("AvalonEdit.Sample")]
+[assembly: AssemblyCopyright("Copyright 2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// 将 ComVisible 设置为 false 使此程序集中的类型
-// 对 COM 组件不可见。  如果需要从 COM 访问此程序集中的类型，
-// 则将该类型上的 ComVisible 特性设置为 true。
+// This sets the default COM visibility of types in the assembly to invisible.
+// If you need to expose a type to COM, use [ComVisible(true)] on that type.
 [assembly: ComVisible(false)]
 
-//若要开始生成可本地化的应用程序，请在 
-//<PropertyGroup> 中的 .csproj 文件中
-//设置 <UICulture>CultureYouAreCodingWith</UICulture>。  例如，如果您在源文件中
-//使用的是美国英语，请将 <UICulture> 设置为 en-US。  然后取消
-//对以下 NeutralResourceLanguage 特性的注释。  更新
-//以下行中的“en-US”以匹配项目文件中的 UICulture 设置。
-
-//[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
-
-
-[assembly: ThemeInfo(
-    ResourceDictionaryLocation.None, //主题特定资源词典所处位置
-                                     //(在页面或应用程序资源词典中 
-                                     // 未找到某个资源的情况下使用)
-    ResourceDictionaryLocation.SourceAssembly //常规资源词典所处位置
-                                              //(在页面、应用程序或任何主题特定资源词典中
-                                              // 未找到某个资源的情况下使用)
-)]
-
-
-// 程序集的版本信息由下面四个值组成: 
+// The assembly version has following format :
 //
-//      主版本
-//      次版本 
-//      生成号
-//      修订号
+// Major.Minor.Build.Revision
 //
-// 可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值，
-// 方法是按如下所示使用“*”: 
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+// You can specify all the values or you can use the default the Revision and 
+// Build Numbers by using the '*' as shown below:
+[assembly: AssemblyVersion("1.0.*")]
