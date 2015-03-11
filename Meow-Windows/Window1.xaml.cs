@@ -30,7 +30,7 @@ using ICSharpCode.AvalonEdit.Folding;
 using ICSharpCode.AvalonEdit.Highlighting;
 using Microsoft.Win32;
 
-namespace AvalonEdit.Sample
+namespace Meow_Windows
 {
 	/// <summary>
 	/// Interaction logic for Window1.xaml
@@ -41,7 +41,7 @@ namespace AvalonEdit.Sample
 		{
 			// Load our custom highlighting definition
 			IHighlightingDefinition customHighlighting;
-			using (Stream s = typeof(Window1).Assembly.GetManifestResourceStream("AvalonEdit.Sample.CustomHighlighting.xshd")) {
+			using (Stream s = typeof(Window1).Assembly.GetManifestResourceStream("Meow_Windows.CustomHighlighting.xshd")) {
 				if (s == null)
 					throw new InvalidOperationException("Could not find embedded resource");
 				using (XmlReader reader = new XmlTextReader(s)) {

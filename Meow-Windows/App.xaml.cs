@@ -22,7 +22,7 @@ using System.Data;
 using System.Xml;
 using System.Configuration;
 
-namespace AvalonEdit.Sample
+namespace Meow_Windows
 {
 	/// <summary>
 	/// Interaction logic for App.xaml
