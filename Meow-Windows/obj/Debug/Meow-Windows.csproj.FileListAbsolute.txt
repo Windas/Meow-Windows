@@ -1,0 +1,10 @@
+D:\Projects\Meow\bin\Debug\AvalonEdit.Sample.exe
+D:\Projects\Meow\bin\Debug\AvalonEdit.Sample.pdb
+D:\Projects\Meow\Meow-Windows\obj\Debug\Meow-Windows.csprojResolveAssemblyReference.cache
+D:\Projects\Meow\Meow-Windows\obj\Debug\Window1.baml
+D:\Projects\Meow\Meow-Windows\obj\Debug\Window1.g.cs
+D:\Projects\Meow\Meow-Windows\obj\Debug\App.g.cs
+D:\Projects\Meow\Meow-Windows\obj\Debug\AvalonEdit.Sample_MarkupCompile.cache
+D:\Projects\Meow\Meow-Windows\obj\Debug\AvalonEdit.Sample.g.resources
+D:\Projects\Meow\Meow-Windows\obj\Debug\AvalonEdit.Sample.exe
+D:\Projects\Meow\Meow-Windows\obj\Debug\AvalonEdit.Sample.pdb

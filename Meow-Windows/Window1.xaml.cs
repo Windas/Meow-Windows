@@ -54,7 +54,6 @@ namespace AvalonEdit.Sample
 			
 			
 			InitializeComponent();
-			propertyGridComboBox.SelectedIndex = 2;
 			
 			//textEditor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("C#");
 			//textEditor.SyntaxHighlighting = customHighlighting;
@@ -96,22 +95,6 @@ namespace AvalonEdit.Sample
 			textEditor.Save(currentFileName);
 		}
 		
-		void propertyGridComboBoxSelectionChanged(object sender, RoutedEventArgs e)
-		{
-			if (propertyGrid == null)
-				return;
-			switch (propertyGridComboBox.SelectedIndex) {
-				case 0:
-					propertyGrid.SelectedObject = textEditor;
-					break;
-				case 1:
-					propertyGrid.SelectedObject = textEditor.TextArea;
-					break;
-				case 2:
-					propertyGrid.SelectedObject = textEditor.Options;
-					break;
-			}
-		}
 		
 		CompletionWindow completionWindow;
 		
