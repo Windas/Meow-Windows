@@ -1,0 +1,14 @@
+D:\Projects\Meow\Meow\bin\Debug\Meow.exe.config
+D:\Projects\Meow\Meow\bin\Debug\Meow.exe
+D:\Projects\Meow\Meow\bin\Debug\Meow.pdb
+D:\Projects\Meow\Meow\obj\Debug\Meow.csprojResolveAssemblyReference.cache
+D:\Projects\Meow\Meow\obj\Debug\App.g.cs
+D:\Projects\Meow\Meow\obj\Debug\Meow_MarkupCompile.cache
+D:\Projects\Meow\Meow\obj\Debug\Meow_MarkupCompile.lref
+D:\Projects\Meow\Meow\obj\Debug\Meow.g.resources
+D:\Projects\Meow\Meow\obj\Debug\Meow.Properties.Resources.resources
+D:\Projects\Meow\Meow\obj\Debug\Meow.csproj.GenerateResource.Cache
+D:\Projects\Meow\Meow\obj\Debug\Meow.exe
+D:\Projects\Meow\Meow\obj\Debug\Meow.pdb
+D:\Projects\Meow\Meow\obj\Debug\MainWindow.g.cs
+D:\Projects\Meow\Meow\obj\Debug\MainWindow.baml
