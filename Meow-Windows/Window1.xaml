@@ -17,7 +17,7 @@
 	OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 	DEALINGS IN THE SOFTWARE.
 -->
-<Window x:Class="AvalonEdit.Sample.Window1"
+<Window x:Class="Meow_Windows.Window1"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
@@ -88,7 +88,7 @@
 				FontFamily="Consolas"
 				FontSize="10pt"
 				SyntaxHighlighting="C#"
-			>Welcome to AvalonEdit!
+			>
             </avalonEdit:TextEditor>
             <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Left"/>
             <avalonEdit:TextEditor
@@ -97,7 +97,7 @@
 				FontFamily="Consolas"
 				FontSize="10pt"
 				SyntaxHighlighting="C#" Margin="4,0,0,0"
-			>Welcome to AvalonEdit!
+			>
             </avalonEdit:TextEditor>
         </Grid>
     </DockPanel>

@@ -5,8 +5,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>AvalonEdit.Sample</RootNamespace>
-    <AssemblyName>AvalonEdit.Sample</AssemblyName>
+    <RootNamespace>Meow_Windows</RootNamespace>
+    <AssemblyName>Meow-Windows</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
   </PropertyGroup>
