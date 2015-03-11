@@ -1,0 +1,5 @@
+D:\Projects\Meow\bin\Debug\ICSharpCode.AvalonEdit.Tests.dll
+D:\Projects\Meow\bin\Debug\ICSharpCode.AvalonEdit.Tests.pdb
+D:\Projects\Meow\ICSharpCode.AvalonEdit.Tests\obj\Debug\ICSharpCode.AvalonEdit.Tests.csprojResolveAssemblyReference.cache
+D:\Projects\Meow\ICSharpCode.AvalonEdit.Tests\obj\Debug\ICSharpCode.AvalonEdit.Tests.dll
+D:\Projects\Meow\ICSharpCode.AvalonEdit.Tests\obj\Debug\ICSharpCode.AvalonEdit.Tests.pdb
