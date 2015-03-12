@@ -23,10 +23,10 @@
 	xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
 	xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
 	TextOptions.TextFormattingMode="Display"
-	Title="MainWindow" Height="678" Width="1007"
+	Title="MainWindow" Height="678" Width="1007" BorderBrush="#FF1DB3D4" Foreground="#FF1DB3D4" OpacityMask="#FF1DB3D4"
 	>
     <DockPanel>
-        <ToolBar DockPanel.Dock="Top">
+        <ToolBar DockPanel.Dock="Top" Background="#FF606A85" Margin="-2.5,0,0,0">
             <ToolBar.Resources>
                 <Style TargetType="{x:Type Image}">
                     <Style.Triggers>
@@ -80,7 +80,7 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="499"/>
+                <ColumnDefinition Width="489"/>
                 <ColumnDefinition Width="1"/>
             </Grid.ColumnDefinitions>
             <avalonEdit:TextEditor
