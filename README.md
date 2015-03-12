@@ -1,5 +1,6 @@
 # Meow
 A Web Simple Collaboration Markdown Editor with an offline version running on Windows
+This project is actually the offline version using WPF and AvalonEdit
 >Collaborators:
 
 >* Chen Chaohao
