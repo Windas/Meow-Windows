@@ -90,7 +90,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="0"/>
             </Grid.ColumnDefinitions>
             <avalonEdit:TextEditor
 				x:Name="textEditor"
