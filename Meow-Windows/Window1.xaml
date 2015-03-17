@@ -27,7 +27,7 @@
 	>
     <Grid Background="#FF606A85">
         <Grid.RowDefinitions>
-            <RowDefinition Height="56*"/>
+            <RowDefinition Height="56"/>
             <RowDefinition Height="591*"/>
         </Grid.RowDefinitions>
         <ToolBar Background="#FF606A85" Margin="-2.5,26,0,0">
@@ -89,8 +89,8 @@
         <Grid Grid.Row="1" Margin="0,22.5,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="576.5"/>
-                <ColumnDefinition Width="1"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0"/>
             </Grid.ColumnDefinitions>
             <avalonEdit:TextEditor
 				x:Name="textEditor"

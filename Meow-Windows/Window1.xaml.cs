@@ -173,6 +173,6 @@ namespace Meow_Windows
 				foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
 			}
 		}
-		#endregion
-	}
+        #endregion
+    }
 }
