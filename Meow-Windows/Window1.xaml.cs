@@ -89,7 +89,7 @@ namespace Meow_Windows
 		{
 			if (currentFileName == null) {
 				SaveFileDialog dlg = new SaveFileDialog();
-				dlg.DefaultExt = ".txt";
+				dlg.DefaultExt = ".html";
 				if (dlg.ShowDialog() ?? false) {
 					currentFileName = dlg.FileName;
 				} else {
@@ -208,11 +208,6 @@ namespace Meow_Windows
 
             return html;
         }
-
-        //private void initInput(object sender, TextCompositionEventArgs e)
-        //{
-        //    outputBrowser.NavigateToString(ConvertExtendedASCII(addCSS(inputEditor.Text)));
-        //}
     }
 
     public class InvertBool : IValueConverter
