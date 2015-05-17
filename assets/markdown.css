@@ -1,6 +1,7 @@
 *{margin:0;padding:0;}
 body {
-	 font:13.34px Consolas, "微软雅黑";
+	 font:13.34px 'Microsoft YaHei';
+	 font-family:'Microsoft YaHei'; 
 	 color:black;
 	 line-height:1.4em;
 	 background-color: #F8F8F8;

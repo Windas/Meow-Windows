@@ -98,9 +98,8 @@
         </TabControl>
         <Grid Grid.Row="2" Margin="0,22,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="574*"/>
-                <ColumnDefinition Width="577*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <!--<avalonEdit:TextEditor
 				Grid.Column="1"
@@ -114,10 +113,11 @@
 				FontFamily="Consolas, 微软雅黑"
 				FontSize="10pt"
 				SyntaxHighlighting="MarkDown"
-                TextChanged="parseDoc" Grid.Column="1"
+                TextChanged="parseDoc" 
+                Padding="5,10,0,0"
 			/>
-            <GridSplitter Width="2" Grid.Column="1"/>
-            <WebBrowser x:Name="outputBrowser" Grid.Column="2" />
+            <GridSplitter Width="2"/>
+            <WebBrowser x:Name="outputBrowser" Grid.Column="1" />
         </Grid>
         <Menu x:Name="menu" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="999" Background="#FF606A85" Grid.RowSpan="2"/>
     </Grid>
