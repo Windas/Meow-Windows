@@ -18,8 +18,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -29,6 +31,8 @@ using ICSharpCode.AvalonEdit.CodeCompletion;
 using ICSharpCode.AvalonEdit.Folding;
 using ICSharpCode.AvalonEdit.Highlighting;
 using Microsoft.Win32;
+
+using CommonMark;
 
 namespace Meow_Windows
 {
@@ -55,12 +59,12 @@ namespace Meow_Windows
 			
 			InitializeComponent();
 			
-			//textEditor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("C#");
-			//textEditor.SyntaxHighlighting = customHighlighting;
+			//inputEditor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("C#");
+			//inputEditor.SyntaxHighlighting = customHighlighting;
 			// initial highlighting now set by XAML
 			
-			textEditor.TextArea.TextEntering += textEditor_TextArea_TextEntering;
-			textEditor.TextArea.TextEntered += textEditor_TextArea_TextEntered;
+			inputEditor.TextArea.TextEntering += textEditor_TextArea_TextEntering;
+			inputEditor.TextArea.TextEntered += textEditor_TextArea_TextEntered;
 			
 			DispatcherTimer foldingUpdateTimer = new DispatcherTimer();
 			foldingUpdateTimer.Interval = TimeSpan.FromSeconds(2);
@@ -76,8 +80,8 @@ namespace Meow_Windows
 			dlg.CheckFileExists = true;
 			if (dlg.ShowDialog() ?? false) {
 				currentFileName = dlg.FileName;
-				textEditor.Load(currentFileName);
-				textEditor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinitionByExtension(Path.GetExtension(currentFileName));
+				inputEditor.Load(currentFileName);
+				inputEditor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinitionByExtension(Path.GetExtension(currentFileName));
 			}
 		}
 		
@@ -92,7 +96,7 @@ namespace Meow_Windows
 					return;
 				}
 			}
-			textEditor.Save(currentFileName);
+			inputEditor.Save(currentFileName);
 		}
 		
 		
@@ -102,7 +106,7 @@ namespace Meow_Windows
 		{
 			if (e.Text == ".") {
 				// open code completion after the user has pressed dot:
-				completionWindow = new CompletionWindow(textEditor.TextArea);
+				completionWindow = new CompletionWindow(inputEditor.TextArea);
 				// provide AvalonEdit with the data:
 				IList<ICompletionData> data = completionWindow.CompletionList.CompletionData;
 				data.Add(new MyCompletionData("Item1"));
@@ -134,31 +138,31 @@ namespace Meow_Windows
 		
 		void HighlightingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			if (textEditor.SyntaxHighlighting == null) {
+			if (inputEditor.SyntaxHighlighting == null) {
 				foldingStrategy = null;
 			} else {
-				switch (textEditor.SyntaxHighlighting.Name) {
+				switch (inputEditor.SyntaxHighlighting.Name) {
 					case "XML":
 						foldingStrategy = new XmlFoldingStrategy();
-						textEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.DefaultIndentationStrategy();
+						inputEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.DefaultIndentationStrategy();
 						break;
 					case "C#":
 					case "C++":
 					case "PHP":
 					case "Java":
-						textEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.CSharp.CSharpIndentationStrategy(textEditor.Options);
+						inputEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.CSharp.CSharpIndentationStrategy(inputEditor.Options);
 						foldingStrategy = new BraceFoldingStrategy();
 						break;
 					default:
-						textEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.DefaultIndentationStrategy();
+						inputEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.DefaultIndentationStrategy();
 						foldingStrategy = null;
 						break;
 				}
 			}
 			if (foldingStrategy != null) {
 				if (foldingManager == null)
-					foldingManager = FoldingManager.Install(textEditor.TextArea);
-				foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
+					foldingManager = FoldingManager.Install(inputEditor.TextArea);
+				foldingStrategy.UpdateFoldings(foldingManager, inputEditor.Document);
 			} else {
 				if (foldingManager != null) {
 					FoldingManager.Uninstall(foldingManager);
@@ -170,9 +174,58 @@ namespace Meow_Windows
 		void foldingUpdateTimer_Tick(object sender, EventArgs e)
 		{
 			if (foldingStrategy != null) {
-				foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
+				foldingStrategy.UpdateFoldings(foldingManager, inputEditor.Document);
 			}
 		}
         #endregion
+
+        private static string ConvertExtendedASCII(string HTML)
+        {
+            string retVal = "";
+            char[] s = HTML.ToCharArray();
+
+            foreach (char c in s)
+            {
+                if (Convert.ToInt32(c) > 127)
+                    retVal += "&#" + Convert.ToInt32(c) + ";";
+                else
+                    retVal += c;
+            }
+
+            return retVal;
+        }
+
+        private void parseDoc(object sender, EventArgs e)
+        {
+            outputBrowser.NavigateToString(ConvertExtendedASCII(addCSS(inputEditor.Text)));
+        }
+
+        private string addCSS(string origin)
+        {
+            var html = "<html><head><link rel=\"stylesheet\" href=\"" + Environment.CurrentDirectory + "/../../assets/markdown.css\"/></head><body>" 
+                + CommonMark.CommonMarkConverter.Convert(origin) 
+                + "</body></html>";
+
+            return html;
+        }
+
+        //private void initInput(object sender, TextCompositionEventArgs e)
+        //{
+        //    outputBrowser.NavigateToString(ConvertExtendedASCII(addCSS(inputEditor.Text)));
+        //}
+    }
+
+    public class InvertBool : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return !System.Convert.ToBoolean(value);
+        }
+
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return !System.Convert.ToBoolean(value);
+        }  
     }
 }

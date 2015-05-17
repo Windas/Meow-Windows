@@ -344,17 +344,17 @@ namespace ICSharpCode.AvalonEdit.Folding
 					Background = new LinearGradientBrush(Colors.White, Colors.Transparent, 0)
 				};
 				foldingMarginBorder.SizeChanged += UpdateTextViewClip;
-				textEditor.TextArea.TextView.ElementGenerators.Add(foldingGenerator);
-				textEditor.TextArea.LeftMargins.Add(foldingMarginBorder);
+				inputEditor.TextArea.TextView.ElementGenerators.Add(foldingGenerator);
+				inputEditor.TextArea.LeftMargins.Add(foldingMarginBorder);
 			}
 			
 			void UpdateTextViewClip(object sender, SizeChangedEventArgs e)
 			{
-				textEditor.TextArea.TextView.Clip = new RectangleGeometry(
+				inputEditor.TextArea.TextView.Clip = new RectangleGeometry(
 					new Rect(-foldingMarginBorder.ActualWidth,
 					         0,
-					         textEditor.TextArea.TextView.ActualWidth + foldingMarginBorder.ActualWidth,
-					         textEditor.TextArea.TextView.ActualHeight));
+					         inputEditor.TextArea.TextView.ActualWidth + foldingMarginBorder.ActualWidth,
+					         inputEditor.TextArea.TextView.ActualHeight));
 			}
 			 */
 			

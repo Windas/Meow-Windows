@@ -354,7 +354,7 @@ namespace ICSharpCode.AvalonEdit
 		/// </summary>
 		public static readonly DependencyProperty WordWrapProperty =
 			DependencyProperty.Register("WordWrap", typeof(bool), typeof(TextEditor),
-			                            new FrameworkPropertyMetadata(Boxes.False));
+			                            new FrameworkPropertyMetadata(Boxes.True));
 		
 		/// <summary>
 		/// Specifies whether the text editor uses word wrapping.

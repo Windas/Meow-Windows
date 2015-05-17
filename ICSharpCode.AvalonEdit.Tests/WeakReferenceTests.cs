@@ -65,10 +65,10 @@ namespace ICSharpCode.AvalonEdit
 		{
 			TextDocument textDocument = new TextDocument();
 			
-			TextEditor textEditor = new TextEditor();
-			WeakReference wr = new WeakReference(textEditor);
-			textEditor.Document = textDocument;
-			textEditor = null;
+			TextEditor inputEditor = new TextEditor();
+			WeakReference wr = new WeakReference(inputEditor);
+			inputEditor.Document = textDocument;
+			inputEditor = null;
 			
 			GarbageCollect();
 			Assert.IsFalse(wr.IsAlive);
