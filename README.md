@@ -14,13 +14,13 @@ Here we use CommonMark.NET as our processor.
 You can visit [Kanagis/CommonMark.NET](https://github.com/Knagis/CommonMark.NET) for details.
 
 ## Assets
-*Markdown.css from [jasonm23/markdown-css-themes](https://github.com/jasonm23/markdown-css-themes)
-*CommonMark.NET from [kanagis/CommonMark.NET](https://github.com/Knagis/CommonMark.NET)
-*AvalonEdit from [icsharpcode/AvalonEdit](https://github.com/icsharpcode/AvalonEdit)
-*Font which is **YaHei Consolas Hybrid**
+* Markdown.css from [jasonm23/markdown-css-themes](https://github.com/jasonm23/markdown-css-themes)
+* CommonMark.NET from [kanagis/CommonMark.NET](https://github.com/Knagis/CommonMark.NET)
+* AvalonEdit from [icsharpcode/AvalonEdit](https://github.com/icsharpcode/AvalonEdit)
+* Font which is **YaHei Consolas Hybrid**
 
 ## Collaborators
-*[kalenty](https://github.com/kalenty)
+* [kalenty](https://github.com/kalenty)
 
 ## Features
 Visit [jgm/CommonMark](https://github.com/jgm/CommonMark) for details
