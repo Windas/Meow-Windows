@@ -6,6 +6,8 @@ This project is actually the offline version using WPF and AvalonEdit. Project d
 .NET Framework 4.0
 
 ## Markdown
+Markdown is a markup language with plain text formatting syntax designed so that it can be converted to HTML and many other formats using a tool by the same name.
+Visit [wiki/Markdown](http://en.wikipedia.org/wiki/Markdown) for details
 
 ## Processor
 Here we use CommonMark.NET as our processor.
@@ -17,5 +19,8 @@ You can visit [Kanagis/CommonMark.NET](https://github.com/Knagis/CommonMark.NET)
 *AvalonEdit from [icsharpcode/AvalonEdit](https://github.com/icsharpcode/AvalonEdit)
 *Font which is **YaHei Consolas Hybrid**
 
+## Collaborators
+*[kalenty](https://github.com/kalenty)
+
 ## Features
-Hold down
+*Use ```Markdown # TEST``` to get ```HTML <h1>TEST</h1>```
