@@ -198,6 +198,11 @@ namespace Meow_Windows
 		}
         #endregion
 
+        /// <summary>
+        /// Tool function for display chinese correctly in WebBrowser
+        /// </summary>
+        /// <param name="HTML"></param>
+        /// <returns></returns>
         private static string ConvertExtendedASCII(string HTML)
         {
             string retVal = "";
@@ -214,11 +219,24 @@ namespace Meow_Windows
             return retVal;
         }
 
+        /// <summary>
+        /// Send HTML string file to WebBrowser
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void parseDoc(object sender, EventArgs e)
         {
             outputBrowser.NavigateToString(ConvertExtendedASCII(addCSSJS(inputEditor.Text)));
         }
 
+
+        /// <summary>
+        ///This function is used to add CSS files and Javascript files into HTML.
+        ///EnlighterJS is a syntax highlighting Javascript lib for HTML
+        ///Markdown.css is a CSS3 sheet for rebuild the HTML file.
+        /// </summary>
+        /// <param name="origin"></param>
+        /// <returns></returns>
         private string addCSSJS(string origin)
         {
             var html = @"<html>
@@ -226,16 +244,10 @@ namespace Meow_Windows
                             <head>
                                 <link rel=""stylesheet"" href=""" + Environment.CurrentDirectory + @"/../../Meow-Windows/assets/css/markdown.css""/>
                                 <link rel=""stylesheet"" href=""" + Environment.CurrentDirectory + @"/../../Meow-Windows/assets/css/EnlighterJS.min.css""/>
-                                <script type=""text/javascript"" defer=""true"">
-                                var Sigma = document.getElementsByTagName('code');
-	                            for (var i = Sigma.length - 1; i >= 0; i--) {
-		                            Sigma[i].setAttribute(""data-enlighter-language"",""C#"");
-	                            };
-                                </script>
                                 <script type=""text/javascript"" src=""" + Environment.CurrentDirectory + @"/../../Meow-Windows/assets/javascript/MooTools-More-1.5.1-compressed.js""></script>
                                 <script type=""text/javascript"" src=""" + Environment.CurrentDirectory + @"/../../Meow-Windows/assets/javascript/EnlighterJS.min.js""></script>
                                 <script type=""text/javascript""></script>
-                                <meta name=""EnlighterJS"" content=""Advanced javascript based syntax highlighting"" data-language=""html"" data-theme=""enlighter"" data-indent=""4"" data-selector-block=""code"" data-selector-inline=""code.special"" data-rawcodebutton=""true"" data-windowbutton=""true"" data-infobutton=""true"" />
+                                <meta name=""EnlighterJS"" content=""Advanced javascript based syntax highlighting"" data-language=""html"" data-theme=""enlighter"" data-indent=""4"" data-selector-block=""pre"" data-selector-inline=""code.special"" data-rawcodebutton=""true"" data-windowbutton=""true"" data-infobutton=""true"" />
                             </head>
                             <body>"
                                 + CommonMark.CommonMarkConverter.Convert(origin) + @"
@@ -246,6 +258,9 @@ namespace Meow_Windows
         }
     }
 
+    /// <summary>
+    /// Here is a converter used to transfer between "true" and "false", which is used in line-number showing.
+    /// </summary>
     public class InvertBool : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
