@@ -5,6 +5,17 @@ This project is actually the offline version using WPF and AvalonEdit. Project d
 ## Dependecy
 .NET Framework 4.0
 
-## Markdown Processor
+## Markdown
+
+## Processor
 Here we use CommonMark.NET as our processor.
-You can visit 
+You can visit [Kanagis/CommonMark.NET](https://github.com/Knagis/CommonMark.NET) for details.
+
+## Assets
+*Markdown.css from [jasonm23/markdown-css-themes](https://github.com/jasonm23/markdown-css-themes)
+*CommonMark.NET from [kanagis/CommonMark.NET](https://github.com/Knagis/CommonMark.NET)
+*AvalonEdit from [icsharpcode/AvalonEdit](https://github.com/icsharpcode/AvalonEdit)
+*Font which is **YaHei Consolas Hybrid**
+
+## Features
+Hold down
