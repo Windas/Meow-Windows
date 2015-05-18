@@ -202,7 +202,7 @@ namespace Meow_Windows
 
         private string addCSS(string origin)
         {
-            var html = "<html><head><link rel=\"stylesheet\" href=\"" + Environment.CurrentDirectory + "/../../assets/markdown.css\"/></head><body>" 
+            var html = "<html><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/><head><link rel=\"stylesheet\" href=\"" + Environment.CurrentDirectory + "/../../assets/css/markdown.css\"/></head><body>" 
                 + CommonMark.CommonMarkConverter.Convert(origin) 
                 + "</body></html>";
 

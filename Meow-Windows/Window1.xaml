@@ -111,13 +111,14 @@
             <avalonEdit:TextEditor
 				x:Name="inputEditor"
 				FontFamily="Consolas, 微软雅黑"
-				FontSize="10pt"
+				FontSize="12pt"
 				SyntaxHighlighting="MarkDown"
                 TextChanged="parseDoc" 
-                Padding="5,10,0,0"
+                Padding="5,20,0,0"
+                ScrollViewer.PanningRatio ="{Binding Path=ScrollViewer.PanningRatio, ElementName=outputBrowser}"
 			/>
             <GridSplitter Width="2"/>
-            <WebBrowser x:Name="outputBrowser" Grid.Column="1" />
+            <WebBrowser x:Name="outputBrowser" Grid.Column="1"/>
         </Grid>
         <Menu x:Name="menu" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="999" Background="#FF606A85" Grid.RowSpan="2"/>
     </Grid>
