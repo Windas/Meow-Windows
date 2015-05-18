@@ -70,6 +70,8 @@ namespace Meow_Windows
 			foldingUpdateTimer.Interval = TimeSpan.FromSeconds(2);
 			foldingUpdateTimer.Tick += foldingUpdateTimer_Tick;
 			foldingUpdateTimer.Start();
+
+            outputBrowser.NavigateToString(ConvertExtendedASCII(addCSS("")));
 		}
 
 		string currentFileName;
@@ -202,7 +204,7 @@ namespace Meow_Windows
 
         private string addCSS(string origin)
         {
-            var html = "<html><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/><head><link rel=\"stylesheet\" href=\"" + Environment.CurrentDirectory + "/../../assets/css/markdown.css\"/></head><body>" 
+            var html = "<html><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/><head><link rel=\"stylesheet\" href=\"" + Environment.CurrentDirectory + "/../../Meow-Windows/assets/css/markdown.css\"/></head><body>" 
                 + CommonMark.CommonMarkConverter.Convert(origin) 
                 + "</body></html>";
 
