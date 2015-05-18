@@ -22,7 +22,7 @@ table td{border-bottom:1px solid #ddd;padding:.2em 1em;}
 input[type=text],input[type=password],input[type=image],textarea{font:99% helvetica,arial,freesans,sans-serif;}
 select,option{padding:0 .25em;}
 optgroup{margin-top:.5em;}
-pre,code{font:12px Consolas, Menlo, Monaco, "DejaVu Sans Mono", "Bitstream Vera Sans Mono",monospace;}
+/*pre,code{font:12px Consolas, Menlo, Monaco, "DejaVu Sans Mono", "Bitstream Vera Sans Mono",monospace;}
 pre {
 	 margin:1em 0;
 	 font-size:12px;
@@ -48,7 +48,7 @@ code {
 	 color:#444;
 	 padding:0 .2em;
 	 border:1px solid #dedede;
-}
+}*/
 img{border:0;max-width:100%;}
 abbr{border-bottom:none;}
 a{color:#4183c4;text-decoration:none;}

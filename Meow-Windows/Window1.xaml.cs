@@ -71,8 +71,25 @@ namespace Meow_Windows
 			foldingUpdateTimer.Tick += foldingUpdateTimer_Tick;
 			foldingUpdateTimer.Start();
 
-            outputBrowser.NavigateToString(ConvertExtendedASCII(addCSS("")));
+            SuppressScriptErrors(outputBrowser, true);
+            outputBrowser.NavigateToString(ConvertExtendedASCII(addCSSJS("")));
 		}
+
+        static void SuppressScriptErrors(WebBrowser webBrowser, bool hide)
+        {
+            webBrowser.Navigating += (s, e) =>
+            {
+                var fiComWebBrowser = typeof(WebBrowser).GetField("_axIWebBrowser2", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                if (fiComWebBrowser == null)
+                     return;
+ 
+                object objComWebBrowser = fiComWebBrowser.GetValue(webBrowser);
+                if (objComWebBrowser == null)
+                     return;
+
+                objComWebBrowser.GetType().InvokeMember("Silent", System.Reflection.BindingFlags.SetProperty, null, objComWebBrowser, new object[] { hide });
+            };
+        }
 
 		string currentFileName;
 		
@@ -199,14 +216,31 @@ namespace Meow_Windows
 
         private void parseDoc(object sender, EventArgs e)
         {
-            outputBrowser.NavigateToString(ConvertExtendedASCII(addCSS(inputEditor.Text)));
+            outputBrowser.NavigateToString(ConvertExtendedASCII(addCSSJS(inputEditor.Text)));
         }
 
-        private string addCSS(string origin)
+        private string addCSSJS(string origin)
         {
-            var html = "<html><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/><head><link rel=\"stylesheet\" href=\"" + Environment.CurrentDirectory + "/../../Meow-Windows/assets/css/markdown.css\"/></head><body>" 
-                + CommonMark.CommonMarkConverter.Convert(origin) 
-                + "</body></html>";
+            var html = @"<html>
+                            <meta http-equiv=""X-UA-Compatible"" content=""IE=edge""/>
+                            <head>
+                                <link rel=""stylesheet"" href=""" + Environment.CurrentDirectory + @"/../../Meow-Windows/assets/css/markdown.css""/>
+                                <link rel=""stylesheet"" href=""" + Environment.CurrentDirectory + @"/../../Meow-Windows/assets/css/EnlighterJS.min.css""/>
+                                <script type=""text/javascript"" defer=""true"">
+                                var Sigma = document.getElementsByTagName('code');
+	                            for (var i = Sigma.length - 1; i >= 0; i--) {
+		                            Sigma[i].setAttribute(""data-enlighter-language"",""C#"");
+	                            };
+                                </script>
+                                <script type=""text/javascript"" src=""" + Environment.CurrentDirectory + @"/../../Meow-Windows/assets/javascript/MooTools-More-1.5.1-compressed.js""></script>
+                                <script type=""text/javascript"" src=""" + Environment.CurrentDirectory + @"/../../Meow-Windows/assets/javascript/EnlighterJS.min.js""></script>
+                                <script type=""text/javascript""></script>
+                                <meta name=""EnlighterJS"" content=""Advanced javascript based syntax highlighting"" data-language=""html"" data-theme=""enlighter"" data-indent=""4"" data-selector-block=""code"" data-selector-inline=""code.special"" data-rawcodebutton=""true"" data-windowbutton=""true"" data-infobutton=""true"" />
+                            </head>
+                            <body>"
+                                + CommonMark.CommonMarkConverter.Convert(origin) + @"
+                            </body>
+                        </html>";
 
             return html;
         }
