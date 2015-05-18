@@ -23,4 +23,4 @@ You can visit [Kanagis/CommonMark.NET](https://github.com/Knagis/CommonMark.NET)
 *[kalenty](https://github.com/kalenty)
 
 ## Features
-*Use ```Markdown # TEST``` to get ```HTML <h1>TEST</h1>```
+Visit [jgm/CommonMark](https://github.com/jgm/CommonMark) for details
