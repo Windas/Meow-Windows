@@ -66,7 +66,7 @@ namespace Meow_Windows
 
         }
 
-                static void SuppressScriptErrors(WebBrowser webBrowser, bool hide)
+        static void SuppressScriptErrors(WebBrowser webBrowser, bool hide)
         {
             webBrowser.Navigating += (s, e) =>
             {
@@ -145,41 +145,6 @@ namespace Meow_Windows
 		#region Folding
 		FoldingManager foldingManager;
 		AbstractFoldingStrategy foldingStrategy;
-		
-		void HighlightingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		{
-			if (inputEditor.SyntaxHighlighting == null) {
-				foldingStrategy = null;
-			} else {
-				switch (inputEditor.SyntaxHighlighting.Name) {
-					case "XML":
-						foldingStrategy = new XmlFoldingStrategy();
-						inputEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.DefaultIndentationStrategy();
-						break;
-					case "C#":
-					case "C++":
-					case "PHP":
-					case "Java":
-						inputEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.CSharp.CSharpIndentationStrategy(inputEditor.Options);
-						foldingStrategy = new BraceFoldingStrategy();
-						break;
-					default:
-						inputEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.DefaultIndentationStrategy();
-						foldingStrategy = null;
-						break;
-				}
-			}
-			if (foldingStrategy != null) {
-				if (foldingManager == null)
-					foldingManager = FoldingManager.Install(inputEditor.TextArea);
-				foldingStrategy.UpdateFoldings(foldingManager, inputEditor.Document);
-			} else {
-				if (foldingManager != null) {
-					FoldingManager.Uninstall(foldingManager);
-					foldingManager = null;
-				}
-			}
-		}
 		
 		void foldingUpdateTimer_Tick(object sender, EventArgs e)
 		{

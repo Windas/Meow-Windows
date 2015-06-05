@@ -16,19 +16,18 @@ namespace Meow_Windows
     {
         private readonly IInterTabClient _interTabClient;
         private readonly ObservableCollection<TabContent> _tabContents = new ObservableCollection<TabContent>();
+        private static int num = 1;
 
         public Window1Model()
         {
             _interTabClient = new DefaultInterTabClient();
-            
-            
         }
 
         public static Window1Model CreateWithSamples()
         {
             var result = new Window1Model();
-            
-            result.TabContents.Add(new TabContent("File 1", new EditArea()));
+
+            result.TabContents.Add(new TabContent("Untitled-" + num++, new EditArea()));
 
             return result;
         }
@@ -43,9 +42,9 @@ namespace Meow_Windows
             get { return _interTabClient; }
         }
 
-        public Func<object> NewItemFactory
+        public static Func<object> NewItemFactory
         {
-            get { return () => new TabContent("New", new EditArea()); }
+            get { return () => new TabContent("Untitled-" + num++, new EditArea()); }
         }
 
     }

@@ -27,7 +27,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:Meow_Windows"
         mc:Ignorable="d"        
-        Title="MainWindow" Height="804" Width="1161.5"
+        Title="MainWindow" Height="700" Width="1161.5"
+        ShowTitleBar="False"
         d:DataContext="{d:DesignInstance local:Window1Model, IsDesignTimeCreatable=False}"
         WindowTransitionsEnabled="False" >
     <controls:MetroWindow.Resources>
@@ -35,19 +36,28 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Dragablz;component/Themes/mahapps.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="{x:Type dragablz:TabablzControl}" BasedOn="{StaticResource MahAppsTabablzControlStyle}">
+                <Setter Property="NewItemFactory" Value="{x:Static local:Window1Model.NewItemFactory}" />
+                <Setter Property="ShowDefaultAddButton" Value="True" />
+                <Setter Property="ShowDefaultCloseButton" Value="True" />
+            </Style>
         </ResourceDictionary>
+        
     </controls:MetroWindow.Resources>
-    <dockablz:Layout FloatingItemHeaderMemberPath="Header" FloatingItemDisplayMemberPath="Content" 
-                     FloatingItemContainerStyle="{StaticResource MahAppsToolDragablzItemStyle}"  Background="#83919F">
+    <dockablz:Layout FloatingItemHeaderMemberPath="Header" 
+                     FloatingItemDisplayMemberPath="Content" 
+                     FloatingItemContainerStyle="{StaticResource MahAppsToolDragablzItemStyle}"
+                     
+                     Background="#83919F">
         <dragablz:TabablzControl ItemsSource="{Binding TabContents}"  x:Name="InitialTabablzControl"                                 
-                                 HeaderMemberPath="Header"
-                                 Margin="0,0,-12,0">
+                                 HeaderMemberPath="Header">
             <dragablz:TabablzControl.InterTabController>
                 <dragablz:InterTabController InterTabClient="{Binding Window1InterTabClient}" />
             </dragablz:TabablzControl.InterTabController>
+            <dragablz:TabablzControl.ConsolidateOrphanedItems>false</dragablz:TabablzControl.ConsolidateOrphanedItems>
             <dragablz:TabablzControl.ContentTemplate>
                 <DataTemplate DataType="{x:Type local:TabContent}">
-                    <ContentControl Content="{Binding Content}" Margin="4 4 4 4" FontSize="14" />
+                    <ContentControl Content="{Binding Content}"/>
                 </DataTemplate>
             </dragablz:TabablzControl.ContentTemplate>
         </dragablz:TabablzControl>

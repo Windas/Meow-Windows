@@ -39,6 +39,7 @@ namespace Meow_Windows
             if (_hackyIsFirstWindow)
                 DataContext = Window1Model.CreateWithSamples();
 
+           
             _hackyIsFirstWindow = false;
         }
     }

@@ -12,14 +12,15 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <local:InvertBool x:Key="bc"/>
+        <SolidColorBrush x:Key="defaultBackground" Color="#83919F" />
     </UserControl.Resources>
-    <Grid Background="#83919F" Margin="-10,-9,-10,0">
+    <Grid  Background="{StaticResource defaultBackground}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="25.239"/>
-            <RowDefinition Height="30.761"/>
-            <RowDefinition Height="591*"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="600*"/>
         </Grid.RowDefinitions>
-        <ToolBar Background="#FF606A85" Grid.Row="1">
+        <ToolBar Background="{StaticResource defaultBackground}" Grid.Row="1">
             <ToolBar.Resources>
                 <Style TargetType="{x:Type Image}">
                     <Style.Triggers>
@@ -70,11 +71,12 @@
 				ItemsSource="{Binding HighlightingDefinitions, Source={x:Static avalonEdit:HighlightingManager.Instance}}"
 				SelectionChanged="HighlightingComboBox_SelectionChanged"/>-->
         </ToolBar>
-        <Grid Grid.Row="2" Margin="0,22,0,0"  Background="#83919F">
+        <Grid Grid.Row="2" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+            <WebBrowser x:Name="outputBrowser" Grid.Column="1" Visibility="Visible"/>
             <avalonEdit:TextEditor
 				x:Name="inputEditor"
 				FontFamily="Consolas, 微软雅黑"
@@ -82,10 +84,9 @@
 				SyntaxHighlighting="MarkDown"
                 TextChanged="parseDoc" 
                 Padding="5,20,0,0"
-                ScrollViewer.PanningRatio ="{Binding Path=ScrollViewer.PanningRatio, ElementName=outputBrowser}"
+                ScrollViewer.PanningRatio ="{Binding ScrollViewer.PanningRatio, ElementName=outputBrowser}"
 			/>
             <GridSplitter Width="2"/>
-            <WebBrowser x:Name="outputBrowser" Grid.Column="1" Visibility="Visible"/>
         </Grid>
     </Grid>
 </UserControl>
