@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICSharpCode.AvalonEdit.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meow-Windows", "Meow-Windows\Meow-Windows.csproj", "{13A5B497-BA12-45AE-9033-22620C3153FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragablz.net40", "..\..\Dragablz\Dragablz\Dragablz.net40.csproj", "{886AD9DE-BCED-4A99-8376-5177B376C0AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragablz.net40", "Dragablz\Dragablz.net40.csproj", "{886AD9DE-BCED-4A99-8376-5177B376C0AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

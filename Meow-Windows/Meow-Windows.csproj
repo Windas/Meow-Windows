@@ -142,7 +142,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <ProjectReference Include="..\..\..\Dragablz\Dragablz\Dragablz.net40.csproj">
+    <ProjectReference Include="..\Dragablz\Dragablz.net40.csproj">
       <Project>{886ad9de-bced-4a99-8376-5177b376c0ac}</Project>
       <Name>Dragablz.net40</Name>
     </ProjectReference>

@@ -1,0 +1,13 @@
+D:\GitHub\Meow\Windows\bin\Release_net40\Dragablz.dll
+D:\GitHub\Meow\Windows\bin\Release_net40\Dragablz.pdb
+D:\GitHub\Meow\Windows\Dragablz\obj\Release\Dragablz.net40.csprojResolveAssemblyReference.cache
+D:\GitHub\Meow\Windows\Dragablz\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\GitHub\Meow\Windows\Dragablz\obj\Release\Dragablz_MarkupCompile.cache
+D:\GitHub\Meow\Windows\Dragablz\obj\Release\Dragablz_MarkupCompile.lref
+D:\GitHub\Meow\Windows\Dragablz\obj\Release\Themes\Dockablz.baml
+D:\GitHub\Meow\Windows\Dragablz\obj\Release\Themes\Generic.baml
+D:\GitHub\Meow\Windows\Dragablz\obj\Release\Themes\MahApps.baml
+D:\GitHub\Meow\Windows\Dragablz\obj\Release\Themes\MaterialDesign.baml
+D:\GitHub\Meow\Windows\Dragablz\obj\Release\Dragablz.g.resources
+D:\GitHub\Meow\Windows\Dragablz\obj\Release\Dragablz.dll
+D:\GitHub\Meow\Windows\Dragablz\obj\Release\Dragablz.pdb
