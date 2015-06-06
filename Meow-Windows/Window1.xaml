@@ -49,8 +49,10 @@
                      FloatingItemContainerStyle="{StaticResource MahAppsToolDragablzItemStyle}"
                      
                      Background="#83919F">
+        
         <dragablz:TabablzControl ItemsSource="{Binding TabContents}"  x:Name="InitialTabablzControl"                                 
                                  HeaderMemberPath="Header">
+                
             <dragablz:TabablzControl.InterTabController>
                 <dragablz:InterTabController InterTabClient="{Binding Window1InterTabClient}" />
             </dragablz:TabablzControl.InterTabController>

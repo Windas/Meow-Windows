@@ -40,10 +40,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CommonMark.NET\CommonMark.dll</HintPath>
     </Reference>
-    <Reference Include="Dragablz, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Dragablz.0.0.1.110\lib\net40\Dragablz.dll</HintPath>
-    </Reference>
     <Reference Include="MahApps.Metro, Version=1.1.2.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MahApps.Metro.1.1.2.0\lib\net40\MahApps.Metro.dll</HintPath>
@@ -146,6 +142,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <ProjectReference Include="..\..\..\Dragablz\Dragablz\Dragablz.net40.csproj">
+      <Project>{886ad9de-bced-4a99-8376-5177b376c0ac}</Project>
+      <Name>Dragablz.net40</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ICSharpCode.AvalonEdit\ICSharpCode.AvalonEdit.csproj">
       <Project>{6C55B776-26D4-4DB3-A6AB-87E783B2F3D1}</Project>
       <Name>ICSharpCode.AvalonEdit</Name>
