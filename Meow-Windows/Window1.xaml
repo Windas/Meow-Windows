@@ -30,6 +30,7 @@
         Title="MainWindow" Height="700" Width="1161.5"
         ShowTitleBar="False"
         d:DataContext="{d:DesignInstance local:Window1Model, IsDesignTimeCreatable=False}"
+        BorderBrush="#83919F"
         WindowTransitionsEnabled="False" >
     <controls:MetroWindow.Resources>
         <ResourceDictionary>
