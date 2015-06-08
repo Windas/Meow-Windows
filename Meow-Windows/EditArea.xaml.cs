@@ -87,11 +87,19 @@ namespace Meow_Windows
 		void openFileClick(object sender, RoutedEventArgs e)
 		{
 			OpenFileDialog dlg = new OpenFileDialog();
+            string[] strExtension = new string[] {".md", ".txt", ".", ".markdown"};
 			dlg.CheckFileExists = true;
 			if (dlg.ShowDialog() ?? false) {
-				currentFileName = dlg.FileName;
-				inputEditor.Load(currentFileName);
-				inputEditor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinitionByExtension(Path.GetExtension(currentFileName));
+                if (!strExtension.Contains(Path.GetExtension(dlg.FileName)))//验证读取文件的格式
+                {
+                    MessageBox.Show("Only Could Open .MD File！");
+                }
+                else
+                {
+                    currentFileName = dlg.FileName;
+                    inputEditor.Load(currentFileName);
+                    inputEditor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinitionByExtension(Path.GetExtension(currentFileName));
+                }  
 			}
 		}
 		
@@ -99,7 +107,8 @@ namespace Meow_Windows
 		{
 			if (currentFileName == null) {
 				SaveFileDialog dlg = new SaveFileDialog();
-				dlg.DefaultExt = ".html";
+				dlg.DefaultExt = ".md";
+                dlg.FileName = "Untitled";
 				if (dlg.ShowDialog() ?? false) {
 					currentFileName = dlg.FileName;
 				} else {

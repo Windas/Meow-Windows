@@ -1020,6 +1020,7 @@ namespace Dragablz
 
             if (dragablzItem == null) throw new ApplicationException("Unable to ascertain DragablzItem to close.");
 
+           
             var cancel = false;
             if (ClosingItemCallback != null)
             {
@@ -1030,6 +1031,7 @@ namespace Dragablz
 
             if (!cancel)
             {
+                //by jtk, close item and then move back the first item
                 if (SelectedItem == RemoveItem(dragablzItem))
                 {
                     SelectedItem = base.Items.CurrentItem;
@@ -1048,6 +1050,8 @@ namespace Dragablz
 
             AddToSource(newItem);
             SelectedItem = newItem;
+            //by jtk
+            base.Items.MoveCurrentToNext();
 
             Dispatcher.BeginInvoke(new Action(_dragablzItemsControl.InvalidateMeasure), DispatcherPriority.Loaded);
         }

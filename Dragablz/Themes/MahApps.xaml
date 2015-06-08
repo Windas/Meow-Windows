@@ -152,11 +152,11 @@
 
     <Style x:Key="MahAppsTrapezoidDragableTabItemStyle"  TargetType="{x:Type dragablz:DragablzItem}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource MahAppsFocusVisual}"/>
-        <Setter Property="Foreground" Value="{DynamicResource BlackBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Margin" Value="0 0 0 0"/>
-        <Setter Property="Height" Value="30" />
+        <Setter Property="Height" Value="35" />
         <!-->by jtk, change the height of tabllist<!-->
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
@@ -165,7 +165,7 @@
                 <ControlTemplate TargetType="{x:Type dragablz:DragablzItem}">                    
                     <Grid x:Name="templateRoot" SnapsToDevicePixels="true" Margin="0 1 -10 -1">
                         <dragablz:Trapezoid x:Name="Trapezoid" 
-                                            BorderBrush="White" 
+                                            BorderBrush="Gray" 
                                             Background="{TemplateBinding Background}"                                          
                                             LongBasePenBrush="{TemplateBinding Background}"                                          
                                             PenThickness="2"
@@ -178,7 +178,7 @@
                                 <StackPanel VerticalAlignment="Center">
                                     <ContentPresenter Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"
                                                   x:Name="contentPresenter" 
-                                                  TextBlock.FontSize="14"
+                                                  TextBlock.FontSize="15"
                                                   IsHitTestVisible="False" />
                                 </StackPanel>
                                 <Thumb Grid.Column="0" HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch" 
@@ -205,7 +205,7 @@
                         <Trigger Property="IsSelected" Value="True">
                             <Setter Property="Background" Value="{DynamicResource AccentColorBrush}" TargetName="Trapezoid"/>
                             <Setter Property="LongBasePenBrush" Value="{DynamicResource AccentColorBrush}" TargetName="Trapezoid"/>
-                            <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource BlackBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

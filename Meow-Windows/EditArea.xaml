@@ -81,6 +81,7 @@
 				x:Name="inputEditor"
 				FontFamily="Consolas, 微软雅黑"
 				FontSize="12pt"
+                Background="White"
 				SyntaxHighlighting="MarkDown"
                 TextChanged="parseDoc" 
                 Padding="5,20,0,0"

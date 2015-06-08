@@ -48,7 +48,7 @@
     <dockablz:Layout FloatingItemHeaderMemberPath="Header" 
                      FloatingItemDisplayMemberPath="Content" 
                      FloatingItemContainerStyle="{StaticResource MahAppsToolDragablzItemStyle}"
-                     
+                     Margin="0 -7 0 0"
                      Background="#83919F">
         
         <dragablz:TabablzControl ItemsSource="{Binding TabContents}"  x:Name="InitialTabablzControl"                                 
