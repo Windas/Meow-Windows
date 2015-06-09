@@ -44,6 +44,10 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <ItemGroup>
+    <Reference Include="Dragablz, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Dragablz.0.0.1.110\lib\net40\Dragablz.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>nunit.framework.dll</HintPath>
       <Private>True</Private>
@@ -96,7 +100,8 @@
       <Name>ICSharpCode.AvalonEdit</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Search" />
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

@@ -31,7 +31,6 @@ namespace Meow_Windows
 	{
 		public App()
 		{
-			InitializeComponent();
 		}
 	}
 }

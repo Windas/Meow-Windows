@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="Meow_Windows.EditArea"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+             xmlns:local="clr-namespace:Meow_Windows"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             TextOptions.TextFormattingMode="Display"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <local:InvertBool x:Key="bc"/>
+        <SolidColorBrush x:Key="defaultBackground" Color="#83919F" />
+    </UserControl.Resources>
+    <Grid  Background="{StaticResource defaultBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="600*"/>
+        </Grid.RowDefinitions>
+        <ToolBar Background="{StaticResource defaultBackground}" Grid.Row="1">
+            <ToolBar.Resources>
+                <Style TargetType="{x:Type Image}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorLevel=1, AncestorType={x:Type ButtonBase}}}" Value="False">
+                            <Setter Property="Opacity" Value="0.30" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ToolBar.Resources>
+            <Button Click="openFileClick">
+                <Image Source="Images/Open.png" Height="16"/>
+            </Button>
+            <Button Click="saveFileClick">
+                <Image Source="Images/Save.png" Height="16"/>
+            </Button>
+            <Separator/>
+            <Button Command="Cut">
+                <Image Source="Images/Cut.png" Height="16"/>
+            </Button>
+            <Button Command="Copy">
+                <Image Source="Images/Copy.png" Height="16"/>
+            </Button>
+            <Button Command="Paste">
+                <Image Source="Images/Paste.png" Height="16"/>
+            </Button>
+            <Button Command="Delete">
+                <Image Source="Images/Delete.png" Height="16"/>
+            </Button>
+            <Separator/>
+            <Button Command="Undo">
+                <Image Source="Images/Undo.png" Height="16"/>
+            </Button>
+            <Button Command="Redo">
+                <Image Source="Images/Redo.png" Height="16"/>
+            </Button>
+            <Separator/>
+            <CheckBox IsChecked="{Binding WordWrap, ElementName=inputEditor, Converter={StaticResource bc}}">
+                <Image Source="Images/WordWrap.png" Height="16"/>
+            </CheckBox>
+            <CheckBox IsChecked="{Binding ShowLineNumbers, ElementName=inputEditor}">
+                <TextBlock Width="16" TextAlignment="Center"><Run Text="#"/></TextBlock>
+            </CheckBox>
+            <CheckBox IsChecked="{Binding Options.ShowEndOfLine, ElementName=inputEditor}">
+                <TextBlock Width="16" TextAlignment="Center"><Run Text="¶"/></TextBlock>
+            </CheckBox>
+            <!--<ComboBox x:Name="highlightingComboBox"
+				SelectedItem="{Binding SyntaxHighlighting, ElementName=inputEditor}"
+				ItemsSource="{Binding HighlightingDefinitions, Source={x:Static avalonEdit:HighlightingManager.Instance}}"
+				SelectionChanged="HighlightingComboBox_SelectionChanged"/>-->
+        </ToolBar>
+        <Grid Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <WebBrowser x:Name="outputBrowser" 
+                        Grid.Column="1" 
+                        Visibility="Visible"
+                        TextBlock.FontFamily="Consolas, 微软雅黑"
+                        />
+            <avalonEdit:TextEditor
+				x:Name="inputEditor"
+				FontFamily="Consolas, 微软雅黑"
+				FontSize="13pt"
+                Background="White"
+				SyntaxHighlighting="MarkDown"
+                TextChanged="parseDoc" 
+                Padding="5,20,0,0"
+                ScrollViewer.ScrollChanged="inputEditor_ScrollChanged"
+
+			/>
+            <GridSplitter Width="2"/>
+        </Grid>
+    </Grid>
+</UserControl>

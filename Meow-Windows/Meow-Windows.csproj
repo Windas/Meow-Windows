@@ -32,13 +32,23 @@
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>1433460087_UberCons_SocialPack_GitHub_Cat.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonMark, Version=0.1.0.0, Culture=neutral, PublicKeyToken=001ef8810438905d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CommonMark.NET\CommonMark.dll</HintPath>
     </Reference>
+    <Reference Include="MahApps.Metro, Version=1.1.2.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MahApps.Metro.1.1.2.0\lib\net40\MahApps.Metro.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Dynamic">
       <HintPath>C:\IronRuby\bin\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.Scripting">
       <HintPath>C:\IronRuby\bin\Microsoft.Scripting.dll</HintPath>
@@ -63,6 +73,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.1.2.0\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -86,17 +99,35 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="BraceFoldingStrategy.cs" />
+    <Compile Include="EditArea.xaml.cs">
+      <DependentUpon>EditArea.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyCompletionData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\WPFAssemblyInfo.cs" />
     <Compile Include="saveFiles.cs" />
+    <Compile Include="TabContent.cs" />
     <Compile Include="Window1.xaml.cs">
-      <SubType>Code</SubType>
       <DependentUpon>Window1.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Window1InterTabClient.cs" />
+    <Compile Include="Window1Model.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Window1.xaml" />
+    <Page Include="EditArea.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Copy.png" />
@@ -110,11 +141,29 @@
     <Resource Include="Images\WordWrap.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <ProjectReference Include="..\Dragablz\Dragablz.net40.csproj">
+      <Project>{886ad9de-bced-4a99-8376-5177b376c0ac}</Project>
+      <Name>Dragablz.net40</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ICSharpCode.AvalonEdit\ICSharpCode.AvalonEdit.csproj">
       <Project>{6C55B776-26D4-4DB3-A6AB-87E783B2F3D1}</Project>
       <Name>ICSharpCode.AvalonEdit</Name>
     </ProjectReference>
     <EmbeddedResource Include="CustomHighlighting.xshd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Resource Include="resource\帮助文档.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1433460087_UberCons_SocialPack_GitHub_Cat.ico" />
+    <SplashScreen Include="Images\Meow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
