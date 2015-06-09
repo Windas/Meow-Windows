@@ -76,16 +76,21 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <WebBrowser x:Name="outputBrowser" Grid.Column="1" Visibility="Visible"/>
+            <WebBrowser x:Name="outputBrowser" 
+                        Grid.Column="1" 
+                        Visibility="Visible"
+                        TextBlock.FontFamily="Consolas, 微软雅黑"
+                        />
             <avalonEdit:TextEditor
 				x:Name="inputEditor"
 				FontFamily="Consolas, 微软雅黑"
-				FontSize="12pt"
+				FontSize="13pt"
                 Background="White"
 				SyntaxHighlighting="MarkDown"
                 TextChanged="parseDoc" 
                 Padding="5,20,0,0"
-                ScrollViewer.PanningRatio ="{Binding ScrollViewer.PanningRatio, ElementName=outputBrowser}"
+                ScrollViewer.ScrollChanged="inputEditor_ScrollChanged"
+
 			/>
             <GridSplitter Width="2"/>
         </Grid>

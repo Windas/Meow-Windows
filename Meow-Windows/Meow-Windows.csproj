@@ -47,6 +47,9 @@
     <Reference Include="Microsoft.Dynamic">
       <HintPath>C:\IronRuby\bin\Microsoft.Dynamic.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.Scripting">
       <HintPath>C:\IronRuby\bin\Microsoft.Scripting.dll</HintPath>
     </Reference>
@@ -154,6 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Resource Include="resource\帮助文档.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="1433460087_UberCons_SocialPack_GitHub_Cat.ico" />

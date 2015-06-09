@@ -1,5 +1,11 @@
-﻿using System;
+﻿using CommonMark;
+using ICSharpCode.AvalonEdit.CodeCompletion;
+using ICSharpCode.AvalonEdit.Folding;
+using ICSharpCode.AvalonEdit.Highlighting;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,16 +17,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Globalization;
 using System.Windows.Threading;
 using System.Xml;
-
-using ICSharpCode.AvalonEdit.CodeCompletion;
-using ICSharpCode.AvalonEdit.Folding;
-using ICSharpCode.AvalonEdit.Highlighting;
-using Microsoft.Win32;
-
-using CommonMark;
 
 namespace Meow_Windows
 {
@@ -56,11 +54,13 @@ namespace Meow_Windows
             inputEditor.TextArea.TextEntering += textEditor_TextArea_TextEntering;
             inputEditor.TextArea.TextEntered += textEditor_TextArea_TextEntered;
 
+            //binding scrollview
+
             DispatcherTimer foldingUpdateTimer = new DispatcherTimer();
             foldingUpdateTimer.Interval = TimeSpan.FromSeconds(2);
             foldingUpdateTimer.Tick += foldingUpdateTimer_Tick;
             foldingUpdateTimer.Start();
-
+            
             SuppressScriptErrors(outputBrowser, true);
             outputBrowser.NavigateToString(ConvertExtendedASCII(addCSSJS("")));
 
@@ -89,8 +89,9 @@ namespace Meow_Windows
 			OpenFileDialog dlg = new OpenFileDialog();
             string[] strExtension = new string[] {".md", ".txt", ".", ".markdown"};
 			dlg.CheckFileExists = true;
+            dlg.Filter = "Markdown文件(*.md, *.txt， *.markdown)|*.md;*.txt|所有文件(*.*)|*.*";
 			if (dlg.ShowDialog() ?? false) {
-                if (!strExtension.Contains(Path.GetExtension(dlg.FileName)))//验证读取文件的格式
+                if (!strExtension.Contains(Path.GetExtension(dlg.FileName)))//验证读取文件的格式 by jtk
                 {
                     MessageBox.Show("Only Could Open .MD File！");
                 }
@@ -108,7 +109,8 @@ namespace Meow_Windows
 			if (currentFileName == null) {
 				SaveFileDialog dlg = new SaveFileDialog();
 				dlg.DefaultExt = ".md";
-                dlg.FileName = "Untitled";
+                dlg.Filter = "Markdown文件(*.md, *.txt， *.markdown)|*.md;*.txt|所有文件(*.*)|*.*";
+                dlg.FileName = "Untitled";//TODO: get item name and save it 
 				if (dlg.ShowDialog() ?? false) {
 					currentFileName = dlg.FileName;
 				} else {
@@ -130,6 +132,7 @@ namespace Meow_Windows
 				IList<ICompletionData> data = completionWindow.CompletionList.CompletionData;
 				data.Add(new MyCompletionData("Item1"));
 				data.Add(new MyCompletionData("Item2"));
+                data.Add(new MyCompletionData("Itee"));
 				data.Add(new MyCompletionData("Item3"));
 				data.Add(new MyCompletionData("Another item"));
 				completionWindow.Show();
@@ -183,13 +186,22 @@ namespace Meow_Windows
 
             return retVal;
         }
-
+        DispatcherTimer tm = new DispatcherTimer();
         /// <summary>
         /// Send HTML string file to WebBrowser
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void parseDoc(object sender, EventArgs e)
+        {
+            //System.Threading.Thread.Sleep(100);
+
+            tm.Tick += new EventHandler(drawing);//订阅Tick事件
+            tm.Interval = TimeSpan.FromSeconds(0.5);
+            tm.Start();
+        }
+
+        private void drawing(object sender, EventArgs e)
         {
             outputBrowser.NavigateToString(ConvertExtendedASCII(addCSSJS(inputEditor.Text)));
         }
@@ -221,6 +233,16 @@ namespace Meow_Windows
 
             return html;
         }
+        /// <summary>
+        /// using scrollchanged event instead of data binding
+        /// </summary>
+        private void inputEditor_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            double a = e.VerticalOffset;
+            var html = outputBrowser.Document as mshtml.HTMLDocument;
+            html.parentWindow.scroll(0, (int )a);
+        }
+
     }
 
     /// <summary>

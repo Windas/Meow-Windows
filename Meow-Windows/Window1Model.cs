@@ -7,6 +7,8 @@ using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using Dragablz;
+using ICSharpCode.AvalonEdit.Highlighting;
+
 using Dragablz.Dockablz;
 //using M.Annotations;
 
@@ -26,8 +28,11 @@ namespace Meow_Windows
         public static Window1Model CreateWithSamples()
         {
             var result = new Window1Model();
+            var editArea = new EditArea();
+            editArea.inputEditor.Load("帮助文档.md");//TODO: rizenmebunengzhijiediaoyongziyuanwenjiana
+            editArea.inputEditor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinitionByExtension(".md");
 
-            result.TabContents.Add(new TabContent("Untitled-" + num++, new EditArea()));
+            result.TabContents.Add(new TabContent("帮助文档.md", editArea));
 
             return result;
         }
